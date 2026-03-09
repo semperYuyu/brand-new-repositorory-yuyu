@@ -1,2 +1,177 @@
 @import "tailwindcss";
 @import url("https://fonts.cdnfonts.com/css/pokemon-solid");
+
+@theme {
+  --animate-wiggle: wiggle 2s ease-in-out infinite;
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(-3deg);
+    }
+    50% {
+      transform: rotate(3deg);
+    }
+  }
+
+  --animate-flips: flips 1s ease-in-out 1;
+  @keyframes flips {
+    0% {
+      background-image: url("/pokeCardBack.jpg");
+      background-size: 450px 660px;
+      opacity: 0;
+      transform: rotateY(180deg);
+    }
+
+    40% {
+      opacity: 1;
+      filter: brightness(0%);
+    }
+  }
+
+  --animate-fade-in: fade-in 1s ease 1;
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(75px);
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  --animate-fade-slow: fade-slow 2s ease 1;
+  @keyframes fade-slow {
+    0% {
+      opacity: 0;
+      transform: translateY(75px);
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  --animate-hide: hide 3s ease 1;
+  @keyframes hide {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  --animate-scene-start: scene-start 3s ease 1;
+  @keyframes scene-start {
+    0% {
+      background: repeating-radial-gradient(
+        circle,
+        black,
+        white 50px,
+        black 100px
+      );
+      opacity: 0;
+    }
+
+    20% {
+      background: repeating-radial-gradient(
+        circle,
+        white,
+        black 50px,
+        white 100px
+      );
+    }
+
+    40% {
+      background: repeating-radial-gradient(
+        circle,
+        black,
+        white 50px,
+        black 100px
+      );
+      opacity: 1;
+    }
+
+    60% {
+      background: repeating-radial-gradient(
+        circle,
+        white,
+        black 50px,
+        white 100px
+      );
+    }
+
+    80% {
+      background: repeating-radial-gradient(
+        circle,
+        white,
+        black 50px,
+        white 100px
+      );
+    }
+
+    100% {
+      background: repeating-radial-gradient(
+        circle,
+        white,
+        black 50px,
+        white 100px
+      );
+      opacity: 0;
+    }
+  }
+
+  --animate-spawn: spawn 4s ease 1;
+  @keyframes spawn {
+    2% {
+      scale: 106%;
+    }
+
+    4% {
+      scale: 112%;
+    }
+
+    6% {
+      scale: 118%;
+    }
+
+    8% {
+      scale: 124%;
+    }
+
+    10% {
+      scale: 130%;
+    }
+
+    20% {
+      scale: 130%;
+      transform: rotateY(180deg);
+    }
+
+    30% {
+      scale: 130%;
+    }
+
+    95% {
+      scale: 130%;
+    }
+    100% {
+    }
+  }
+
+  --animate-spawn-slow: spawn-slow 4s ease 1;
+  @keyframes spawn-slow {
+    0% {
+      opacity: 0;
+    }
+
+    90% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}

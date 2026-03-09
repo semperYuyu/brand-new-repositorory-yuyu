@@ -17,11 +17,11 @@ export default function PokemonCard({ pokemon }) {
     fetch(pokemon.url)
       .then((data) => data.json())
       .then((data) => setCurrentPoke(data));
-  }, []);
+  }, [pokemon.url]);
 
   function clickHandler() {
     setChosePokemon(currentPoke);
-    navigate("/details");
+    navigate(`/details`);
   }
 
   if (!currentPoke) return <Loading />;
@@ -32,20 +32,19 @@ export default function PokemonCard({ pokemon }) {
 
   return (
     <div
-      className={
-        "bg-[url(/pokeDexBackground.jpg)] bg-no-repeat bg-cover bg-center bg-gray-400 w-full h-75 flex flex-col justify-between items-center border-3 rounded-xl hover:scale-120 transition-all ease-in-out shadow-xl/50"
-      }
+      className={`cursor-pointer bg-[url(/pokeDexBackground.jpg)] bg-no-repeat bg-cover bg-center bg-gray-400 w-full h-75 flex flex-col justify-between items-center border-3 rounded-xl hover:scale-120 transition-all ease-in-out shadow-xl/50
+        hover:animate-wiggle ;
+        `}
       onClick={() => clickHandler()}
     >
       <h1
-        className={
-          "font-bold text-white text-2xl bg-gray-600 w-[101%] flex justify-center rounded-t-lg font-[Pokemon-Solid] "
-        }
+        className={`font-bold text-white text-2xl bg-gray-600 w-[101%] flex justify-center rounded-t-lg font-[Pokemon-Solid] `}
       >
-        {" "}
-        {name}{" "}
+        {` `}
+        {name}
+        {` `}
       </h1>
-      <img src={image} alt={name} className={"h-50 mb-2"} />
+      <img src={image} alt={name} className={`h-50 mb-2`} />
     </div>
   );
 }
